@@ -4,7 +4,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost:27017/pokedex')],
+  imports: [
+    MongooseModule.forRoot(
+      'mongodb://mongo:U3iQHgr4LvMb3c4hdI4Z@containers-us-west-99.railway.app:6809',
+    ),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
