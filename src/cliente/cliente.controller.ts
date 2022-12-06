@@ -11,8 +11,8 @@ export class ClienteController {
     getClientes() {
       return this.clienteService.getClientes();
     }
-    @Get('/:_id')
-    getCliente(@Param('_id') id: string) {
+    @Get('/:id')
+    getCliente(@Param('id') id: string) {
       return this.clienteService.getCliente(id);
     }
 }

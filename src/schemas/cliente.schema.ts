@@ -24,6 +24,9 @@ export class Cliente {
 
   @Prop()
   fotoUrl: string;
+
+  @Prop()
+  status: string;
 }
 
 export const ClienteSchema = SchemaFactory.createForClass(Cliente);
