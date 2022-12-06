@@ -8,7 +8,7 @@ import { ClienteModule } from './cliente/cliente.module';
   imports: [
     ClienteModule,
     MongooseModule.forRoot(
-      'mongodb://mongo:U3iQHgr4LvMb3c4hdI4Z@containers-us-west-99.railway.app:6809/ezyzy',
+      'mongodb://mongo:U3iQHgr4LvMb3c4hdI4Z@containers-us-west-99.railway.app:6809',
     ),
   ],
   controllers: [AppController],
