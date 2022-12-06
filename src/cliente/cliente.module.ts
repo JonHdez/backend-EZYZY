@@ -18,4 +18,4 @@ import { ClienteService } from './cliente.service';
       providers: [ClienteService]
 })
 
-export class ClientesModule {}
+export class ClienteModule {}
