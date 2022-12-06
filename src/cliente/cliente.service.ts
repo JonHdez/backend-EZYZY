@@ -18,4 +18,8 @@ export class ClienteService {
       console.log(result)
       return result;
     }
+    async createCliente(cliente: Cliente): Promise<Cliente> {
+      const newCliente = new this.clienteModel(cliente);
+      return await newCliente.save();
+    }
 }
