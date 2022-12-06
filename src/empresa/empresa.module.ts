@@ -1,0 +1,20 @@
+/* eslint-disable prettier/prettier */
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Empresa, EmpresaSchema } from 'src/schemas/empresa.schema';
+import { EmpresaController } from './empresa.controller';
+import { EmpresaService } from './empresa.service';
+
+@Module({
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: Empresa.name,
+        schema: EmpresaSchema
+      }
+    ]),
+  ],
+  controllers: [EmpresaController],
+  providers: [EmpresaService],
+})
+export class EmpresaModule {}
