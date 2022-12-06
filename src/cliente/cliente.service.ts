@@ -10,8 +10,12 @@ export class ClienteService {
 
     async getClientes():Promise<Cliente[]> {
       const result = await this.clienteModel.find().exec();
+      console.log(result)
       return result;
     }
-
-
+    async getCliente(id: string):Promise<Cliente> {
+      const result = await this.clienteModel.findById(id).exec();
+      console.log(result)
+      return result;
+    }
 }

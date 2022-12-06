@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
+import { Param } from '@nestjs/common/decorators';
 import { ClienteService } from './cliente.service';
 
 @Controller('cliente')
@@ -9,5 +10,9 @@ export class ClienteController {
     @Get()
     getClientes() {
       return this.clienteService.getClientes();
+    }
+    @Get('/:_id')
+    getCliente(@Param('_id') id: string) {
+      return this.clienteService.getCliente(id);
     }
 }
