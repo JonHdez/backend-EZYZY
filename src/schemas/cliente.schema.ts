@@ -8,9 +8,6 @@ export type ClienteDocument = HydratedDocument<Cliente>;
 @Schema() 
 export class Cliente {
   @Prop()
-  _id: string;
-
-  @Prop()
   nombre: string;
 
   @Prop()
