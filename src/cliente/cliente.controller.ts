@@ -10,7 +10,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 @Controller('cliente')
 export class ClienteController {
     constructor(private clienteService: ClienteService) {}
-    @UseGuards(JwtAuthGuard)
+    /* @UseGuards(JwtAuthGuard) */
     @Get()
     getClientes() {
       return this.clienteService.getClientes();
