@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { Cliente, ClienteSchema } from 'src/schemas/cliente.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -15,11 +16,11 @@ import { JwtModule } from '@nestjs/jwt';
       }
     ]),
     JwtModule.register({
-      secret: 'process.env.JWT_SECRET',
+      secret: 'Esto_es_Secreto_xd',
       signOptions: { expiresIn: '5h' },
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService]
+  providers: [AuthService, JwtStrategy]
 })
 export class AuthModule {}
