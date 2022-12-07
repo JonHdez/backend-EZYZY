@@ -4,17 +4,27 @@ import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { Cliente } from '../schemas/cliente.schema';
 import { Body, Post } from '@nestjs/common/decorators';
+import { Admin } from 'src/schemas/admin.schema';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
     constructor (private authService: AuthService) {}
 
-    @Post('register')
-    registerUser(@Body() cliente:Cliente) {
-        return this.authService.register(cliente)
+    @Post('registerCliente')
+    registerCliente(@Body() cliente:Cliente) {
+        return this.authService.registerCliente(cliente)
     }
-    @Post('login')
-    loginUser(@Body() cliente:Cliente) {
-        return this.authService.login(cliente)
+
+    @Post('registerUser')
+    registerAdmin(@Body() admin:Admin) {
+        return this.authService.registerAdmin(admin)
+    }
+    @Post('loginCliente')
+    loginCliente(@Body() cliente:Cliente) {
+        return this.authService.loginCliente(cliente)
+    }
+    @Post('loginAdmin')
+    loginAdmin(@Body() admin:Admin) {
+        return this.authService.loginAdmin(admin)
     }
 }

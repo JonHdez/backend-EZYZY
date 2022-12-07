@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Admin } from 'src/schemas/admin.schema';
 import { AdminService } from './admin.service';
 
 @Controller('admin')
 export class AdminController {
     constructor(private adminService: AdminService) {}
-
+    @UseGuards(JwtAuthGuard)
     @Get()
     getAdmins() {
       return this.adminService.getAdmins();

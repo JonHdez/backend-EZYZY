@@ -6,6 +6,7 @@ import { Cliente, ClienteSchema } from 'src/schemas/cliente.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
+import { Admin, AdminSchema } from 'src/schemas/admin.schema';
 
 @Module({
   imports: [
@@ -13,6 +14,10 @@ import { JwtStrategy } from './jwt.strategy';
       {
         name: Cliente.name,
         schema: ClienteSchema,
+      },
+      {
+        name: Admin.name,
+        schema: AdminSchema,
       }
     ]),
     JwtModule.register({

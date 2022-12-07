@@ -17,7 +17,7 @@ export class Admin {
   correo: string;
 
   @Prop()
-  password: string;
+  pasword: string;
 
   @Prop()
   fotoUrl: string;
