@@ -13,7 +13,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: 'Esto_es_Secreto_xd',
     });
   }
-/*   async validate(payload: any): Promise<Cliente> {
-    return { Id: payload._id, nombre: payload.nombre };
-  } */
+    async validate(payload: any): Promise<any> {
+    return { Id: payload.id, nombre: payload.nombre };
+  }
 }
