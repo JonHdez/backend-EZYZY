@@ -7,6 +7,7 @@ import { AdminModule } from './admin/admin.module';
 import { EmpresaModule } from './empresa/empresa.module';
 import { PlantillaModule } from './plantilla/plantilla.module';
 import { PlanModule } from './plan/plan.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PlanModule } from './plan/plan.module';
     EmpresaModule,
     PlantillaModule,
     PlanModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
