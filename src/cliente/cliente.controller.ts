@@ -4,9 +4,9 @@ import { Body, Param, Post, UseGuards} from '@nestjs/common/decorators';
 import { Cliente } from 'src/schemas/cliente.schema';
 import { ClienteService } from './cliente.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { ApiBearerAuth } from '@nestjs/swagger';
+/* import { ApiBearerAuth } from '@nestjs/swagger';
 
-@ApiBearerAuth()
+@ApiBearerAuth() */
 @Controller('cliente')
 export class ClienteController {
     constructor(private clienteService: ClienteService) {}

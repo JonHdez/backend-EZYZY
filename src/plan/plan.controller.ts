@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Plan } from 'src/schemas/plan.schema';
 import { PlanService } from './plan.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('plan')
 export class PlanController {
 
     constructor(private planService: PlanService) {}
-
+    @UseGuards(JwtAuthGuard)
     @Get()
     getPlans() {
       return this.planService.getPlans();
