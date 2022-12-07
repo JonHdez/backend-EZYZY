@@ -11,13 +11,13 @@ export class Cliente {
   nombre: string;
 
   @Prop()
-  apellido: string;
+  Apellido: string;
 
   @Prop()
   correo: string;
 
   @Prop()
-  password: string;
+  pasword: string;
 
   @Prop()
   fotoUrl: string;
