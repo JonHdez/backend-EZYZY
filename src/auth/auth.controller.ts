@@ -15,7 +15,7 @@ export class AuthController {
         return this.authService.registerCliente(cliente)
     }
 
-    @Post('registerUser')
+    @Post('registerAdmin')
     registerAdmin(@Body() admin:Admin) {
         return this.authService.registerAdmin(admin)
     }

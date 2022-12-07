@@ -7,9 +7,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { Admin, AdminSchema } from 'src/schemas/admin.schema';
+import { PassportModule } from '@nestjs/passport';
+import { ClienteModule } from 'src/cliente/cliente.module';
+import { AdminModule } from 'src/admin/admin.module';
 
 @Module({
   imports: [
+    ClienteModule,
+    AdminModule,
+    PassportModule,
     MongooseModule.forFeature([
       {
         name: Cliente.name,
@@ -26,6 +32,7 @@ import { Admin, AdminSchema } from 'src/schemas/admin.schema';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy]
+  providers: [AuthService, JwtStrategy],
+  exports: [AuthService]
 })
 export class AuthModule {}

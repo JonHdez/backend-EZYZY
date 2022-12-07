@@ -5,11 +5,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Admin, AdminDocument } from 'src/schemas/admin.schema';
 import { Cliente, ClienteDocument } from 'src/schemas/cliente.schema';
+import { ClienteService } from '../cliente/cliente.service';
+import { JwtStrategy } from './jwt.strategy';
+
 @Injectable()
 export class AuthService {
     constructor(@InjectModel(Cliente.name) private clienteModel: Model<ClienteDocument>,
                 @InjectModel(Admin.name) private adminModel: Model<AdminDocument>,
-                private jwtAuthService: JwtService) {}
+                private jwtAuthService: JwtService,
+                private jwtStrategy: JwtStrategy) {}
 
     checkPassword(pass: string, passBD: string): boolean {
         let chek:boolean;
@@ -20,7 +24,8 @@ export class AuthService {
         }
         return chek
     }
-    
+
+
     async registerCliente(cliente:Cliente) {
         return this.clienteModel.create(cliente)
     }
@@ -38,7 +43,6 @@ export class AuthService {
         if (!checkPass) throw new HttpException('PASSWORD_INCORRECT', 403);
         const payload = {id:findCliente._id, nombre:findCliente.nombre}
         const token = this.jwtAuthService.sign(payload)
-
         const data = {
             user: findCliente,
             token,
