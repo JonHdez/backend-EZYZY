@@ -13,4 +13,8 @@ export class AuthController {
     registerUser(@Body() cliente:Cliente) {
         return this.authService.register(cliente)
     }
+    @Post('login')
+    loginUser(@Body() cliente:Cliente) {
+        return this.authService.login(cliente)
+    }
 }
