@@ -16,9 +16,6 @@ export class Plantilla {
   @Prop()
   codigohtml: string;
 
-  @Prop()
-  css: string;
-
 }
 
 export const PlantillaSchema = SchemaFactory.createForClass(Plantilla);
