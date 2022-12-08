@@ -7,6 +7,7 @@ import { Admin, AdminDocument } from 'src/schemas/admin.schema';
 import { Cliente, ClienteDocument } from 'src/schemas/cliente.schema';
 import { ClienteService } from '../cliente/cliente.service';
 import { JwtStrategy } from './jwt.strategy';
+import jwt_decode from "jwt-decode";
 
 @Injectable()
 export class AuthService {
@@ -43,6 +44,7 @@ export class AuthService {
         if (!checkPass) throw new HttpException('PASSWORD_INCORRECT', 403);
         const payload = {id:findCliente._id, nombre:findCliente.nombre}
         const token = this.jwtAuthService.sign(payload)
+        this.decodeToken(token);
         const data = {
             user: findCliente,
             token,
@@ -68,5 +70,10 @@ export class AuthService {
         return data;
     }
 
+    decodeToken(token){
+        var decoded = jwt_decode(token);
+        console.log(decoded);
+        return decoded;
+    }
 
 }

@@ -1,3 +1,4 @@
+import { Token } from './../schemas/token.schema';
 /* eslint-disable prettier/prettier */
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
@@ -25,5 +26,10 @@ export class AuthController {
     @Post('loginAdmin')
     loginAdmin(@Body() admin:Admin) {
         return this.authService.loginAdmin(admin)
+    }
+
+    @Post('yo')
+    getCliente(@Body() token:Token){
+        return this.authService.decodeToken(token)
     }
 }
