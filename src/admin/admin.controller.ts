@@ -7,7 +7,7 @@ import { AdminService } from './admin.service';
 @Controller('admin')
 export class AdminController {
     constructor(private adminService: AdminService) {}
-/*     @UseGuards(JwtAuthGuard) */
+    @UseGuards(JwtAuthGuard)
     @Get()
     getAdmins() {
       return this.adminService.getAdmins();

@@ -8,7 +8,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class PlanController {
 
     constructor(private planService: PlanService) {}
-/*     @UseGuards(JwtAuthGuard) */
+    @UseGuards(JwtAuthGuard)
     @Get()
     getPlans() {
       return this.planService.getPlans();
