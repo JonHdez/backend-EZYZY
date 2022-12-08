@@ -72,7 +72,7 @@ export class AuthService {
     }
 
     async decodeToken(token: string){
-        const decoded = await jwt_decode(token);
+        const decoded = this.jwtAuthService.decode(token);
         console.log(decoded);
         return decoded;
     }
