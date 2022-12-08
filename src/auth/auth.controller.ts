@@ -29,7 +29,7 @@ export class AuthController {
     }
 
     @Post('yo')
-    getCliente(@Body() token:Token){
+    decodeToken(@Body() token:string){
         return this.authService.decodeToken(token)
     }
 }

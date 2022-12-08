@@ -8,6 +8,7 @@ import { Cliente, ClienteDocument } from 'src/schemas/cliente.schema';
 import { ClienteService } from '../cliente/cliente.service';
 import { JwtStrategy } from './jwt.strategy';
 import jwt_decode from "jwt-decode";
+import { Token } from 'src/schemas/token.schema';
 
 @Injectable()
 export class AuthService {
@@ -70,8 +71,8 @@ export class AuthService {
         return data;
     }
 
-    decodeToken(token){
-        var decoded = jwt_decode(token);
+    async decodeToken(token: string){
+        const decoded = await jwt_decode(token);
         console.log(decoded);
         return decoded;
     }
