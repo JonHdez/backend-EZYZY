@@ -1,5 +1,5 @@
-import { Token } from './../schemas/token.schema';
 /* eslint-disable prettier/prettier */
+import { Token } from './../schemas/token.schema';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
@@ -29,7 +29,7 @@ export class AuthController {
     }
 
     @Post('yo')
-    decodeToken(@Body() token:string){
-        return this.authService.decodeToken(token)
+    decodeToken(@Body() token:Token){
+        return this.authService.decodeToken(token.token)
     }
 }
