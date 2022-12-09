@@ -7,17 +7,17 @@ import { AdminService } from './admin.service';
 @Controller('admin')
 export class AdminController {
     constructor(private adminService: AdminService) {}
-    @UseGuards(JwtAuthGuard)
+    /* @UseGuards(JwtAuthGuard) */
     @Get()
     getAdmins() {
       return this.adminService.getAdmins();
     }
-    @UseGuards(JwtAuthGuard)
+    /* @UseGuards(JwtAuthGuard) */
     @Get('/:id')
     getAdmin(@Param('id') id: string) {
       return this.adminService.getAdmin(id);
     }
-    @UseGuards(JwtAuthGuard)
+    /* @UseGuards(JwtAuthGuard) */
     @Post()
     createAdmin(@Body() admin: Admin){
     return this.adminService.createAdmin(admin);
