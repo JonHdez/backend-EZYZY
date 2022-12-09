@@ -12,10 +12,12 @@ export class AdminController {
     getAdmins() {
       return this.adminService.getAdmins();
     }
+    @UseGuards(JwtAuthGuard)
     @Get('/:id')
     getAdmin(@Param('id') id: string) {
       return this.adminService.getAdmin(id);
     }
+    @UseGuards(JwtAuthGuard)
     @Post()
     createAdmin(@Body() admin: Admin){
     return this.adminService.createAdmin(admin);

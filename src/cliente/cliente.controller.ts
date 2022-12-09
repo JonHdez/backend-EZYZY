@@ -15,12 +15,12 @@ export class ClienteController {
     getClientes() {
       return this.clienteService.getClientes();
     }
-    /* @UseGuards(JwtAuthGuard) */
+
     @Get('/:id')
     getCliente(@Param('id') id: string) {
       return this.clienteService.getCliente(id);
     }
-    @UseGuards(JwtAuthGuard)
+
     @Post()
     createCliete(@Body() cliente: Cliente){
     return this.clienteService.createCliente(cliente);
@@ -30,9 +30,4 @@ export class ClienteController {
     updateLibro(@Param('id') id : string, @Body() cliente: Cliente ){
       return this.clienteService.updateCliente(id, cliente);
     }
-  
-/*     @Delete('/:id')
-    deleteLibros(@Param('id') id: string) {
-    return this.librosService.deleteLibro(id);
-    } */
 }

@@ -23,5 +23,8 @@ export class PlanService {
       const newPlan = new this.planModel(plan);
       return await newPlan.save();
     }
+    async deletePlan(id: string): Promise<Plan> {
+      return await this.planModel.findByIdAndRemove(id);
 
-}
+    }
+  }

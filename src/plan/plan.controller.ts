@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Plan } from 'src/schemas/plan.schema';
 import { PlanService } from './plan.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -20,5 +20,10 @@ export class PlanController {
     @Post()
     createPlan(@Body() plan: Plan){
     return this.planService.createPlan(plan);
+    }
+
+    @Delete('/:id')
+    deleteLibros(@Param('id') id: string) {
+    return this.planService.deletePlan(id);
     }
 }
