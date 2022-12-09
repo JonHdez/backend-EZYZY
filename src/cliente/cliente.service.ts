@@ -22,4 +22,10 @@ export class ClienteService {
       const newCliente = new this.clienteModel(cliente);
       return await newCliente.save();
     }
+    async updateCliente(id: string, cliente: Cliente): Promise<Cliente> {
+      return await this.clienteModel.findByIdAndUpdate(id, cliente, { new: true });
+    }
+/*     async deleteLibro(id: string): Promise<Libro> {
+      return await this.libroModel.findByIdAndRemove(id);
+} */
 }
