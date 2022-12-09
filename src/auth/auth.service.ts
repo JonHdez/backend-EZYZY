@@ -44,7 +44,14 @@ export class AuthService {
 
     const checkPass = this.checkPassword(pasword, findCliente.pasword);
     if (!checkPass) throw new HttpException('PASSWORD_INCORRECT', 403);
-    const payload = { id: findCliente._id, nombre: findCliente.nombre, apellido: findCliente.Apellido, correo: findCliente.correo, status:findCliente.status, fotoUrl: findCliente.fotoUrl };
+    const payload = {
+      id: findCliente._id,
+      nombre: findCliente.nombre,
+      apellido: findCliente.Apellido,
+      correo: findCliente.correo,
+      status: findCliente.status,
+      fotoUrl: findCliente.fotoUrl,
+    };
     const token = this.jwtAuthService.sign(payload);
     this.decodeToken(token);
     const data = {
@@ -61,7 +68,15 @@ export class AuthService {
 
     const checkPass = this.checkPassword(pasword, findAdmin.pasword);
     if (!checkPass) throw new HttpException('PASSWORD_INCORRECT', 403);
-    const payload = { id: findAdmin._id, nombre: findAdmin.nombre};
+    const payload = {
+      id: findAdmin._id,
+      nombre: findAdmin.nombre,
+      apellido: findAdmin.apellido,
+      correo: findAdmin.correo,
+      status: findAdmin.status,
+      fotoUrl: findAdmin.fotoUrl,
+      isAdmin: findAdmin.isAdmin
+    };
     const token = this.jwtAuthService.sign(payload);
 
     const data = {

@@ -24,6 +24,11 @@ export class Admin {
 
   @Prop()
   status: string;
+  
+  @Prop()
+  isAdmin: string;
+
+
 }
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);
