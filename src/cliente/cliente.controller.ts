@@ -15,7 +15,7 @@ export class ClienteController {
     getClientes() {
       return this.clienteService.getClientes();
     }
-    @UseGuards(JwtAuthGuard)
+    /* @UseGuards(JwtAuthGuard) */
     @Get('/:id')
     getCliente(@Param('id') id: string) {
       return this.clienteService.getCliente(id);
