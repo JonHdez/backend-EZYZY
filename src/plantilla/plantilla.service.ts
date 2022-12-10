@@ -23,4 +23,9 @@ export class PlantillaService {
       const newPlantilla = new this.plantillaModel(plantilla);
       return await newPlantilla.save();
     }
+
+    async updateCliente(id: string, plantilla: Plantilla): Promise<Plantilla> {
+      return await this.plantillaModel.findByIdAndUpdate(id, plantilla, { new: true });
+    }
+
 }

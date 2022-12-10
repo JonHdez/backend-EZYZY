@@ -27,7 +27,7 @@ export class ClienteController {
     }
     
     @Put('/:id')
-    updateLibro(@Param('id') id : string, @Body() cliente: Cliente ){
+    updateCliente(@Param('id') id : string, @Body() cliente: Cliente ){
       return this.clienteService.updateCliente(id, cliente);
     }
 }

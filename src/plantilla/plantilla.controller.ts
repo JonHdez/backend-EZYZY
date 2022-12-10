@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { Plantilla } from 'src/schemas/plantilla.schema';
 import { PlantillaService } from './plantilla.service';
 
@@ -18,5 +18,10 @@ export class PlantillaController {
     @Post()
     createPlantilla(@Body() plantilla: Plantilla){
     return this.plantillaService.createPlantilla(plantilla);
+    }
+
+    @Put('/:id')
+    updatePlantilla(@Param('id') id : string, @Body() plantilla: Plantilla ){
+      return this.plantillaService.updateCliente(id, plantilla);
     }
 }
