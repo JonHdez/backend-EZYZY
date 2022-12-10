@@ -8,6 +8,9 @@ export type PlantillaDocument = HydratedDocument<Plantilla>;
 @Schema() 
 export class Plantilla {
   @Prop()
+  _id: string;
+
+  @Prop()
   tituloDePlantilla: string;
 
   @Prop()
